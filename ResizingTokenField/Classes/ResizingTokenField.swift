@@ -48,6 +48,13 @@ open class ResizingTokenField: UIView, UICollectionViewDataSource, UICollectionV
         set { viewModel.font = newValue }
     }
     
+    /// Collection view scrolling
+    public var isScrollEnabled = true {
+        didSet {
+            collectionView.isScrollEnabled = isScrollEnabled
+        }
+    }
+    
     // MARK: Label
     
     /// Boolean value, indicating if label is shown.

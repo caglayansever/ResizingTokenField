@@ -55,11 +55,6 @@ open class ResizingTokenField: UIView, UICollectionViewDataSource, UICollectionV
         }
     }
     
-    public var keyboardType: UIKeyboardType {
-        get { return viewModel.keyboardType }
-        set { viewModel.keyboardType = newValue }
-    }
-    
     // MARK: Label
     
     /// Boolean value, indicating if label is shown.
@@ -137,6 +132,16 @@ open class ResizingTokenField: UIView, UICollectionViewDataSource, UICollectionV
         }
     }
     private var cachedText: String? // If text is set before text field cell is loaded.
+    
+    public var keyboardType: UIKeyboardType {
+        get { return viewModel.keyboardType }
+        set { viewModel.keyboardType = newValue }
+    }
+    
+    public var autocapitalizationType: UITextAutocapitalizationType {
+        get { return viewModel.autocapitalizationType }
+        set { viewModel.autocapitalizationType = newValue }
+    }
     
     // MARK: Animation
     
@@ -508,6 +513,7 @@ open class ResizingTokenField: UIView, UICollectionViewDataSource, UICollectionV
         textFieldCell.textField.delegate = textFieldDelegate
         textFieldCell.textField.textColor = textFieldTextColor
         textFieldCell.textField.keyboardType = viewModel.keyboardType
+        textFieldCell.textField.autocapitalizationType = autocapitalizationType
         textFieldCell.textField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         textFieldCell.textField.addTarget(self, action: #selector(textFieldEditingDidBegin(_:)), for: .editingDidBegin)
         textFieldCell.textField.addTarget(self, action: #selector(textFieldEditingDidEnd(_:)), for: .editingDidEnd)

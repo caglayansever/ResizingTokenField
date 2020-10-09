@@ -52,6 +52,8 @@ class ResizingTokenFieldViewModel {
     
     var keyboardType: UIKeyboardType = Constants.Default.keyboardType
     
+    var autocapitalizationType: UITextAutocapitalizationType  = Constants.Default.autocapitalizationType
+    
     // MARK: - Collapse/expand tokens
     
     private(set) var areTokensCollapsed: Bool = false

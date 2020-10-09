@@ -22,6 +22,7 @@ struct Constants {
         static let defaultTokenTopBottomPadding: CGFloat = 4
         static let defaultTokenLeftRightPadding: CGFloat = 8
         static let defaultTokenCellConfiguration: DefaultTokenCellConfiguration = DefaultTokenCellInitialConfiguration()
+        static let keyboardType: UIKeyboardType  = .default
     }
     
     struct Identifier {

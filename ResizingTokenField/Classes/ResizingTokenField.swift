@@ -55,6 +55,11 @@ open class ResizingTokenField: UIView, UICollectionViewDataSource, UICollectionV
         }
     }
     
+    public var keyboardType: UIKeyboardType {
+        get { return viewModel.keyboardType }
+        set { viewModel.keyboardType = newValue }
+    }
+    
     // MARK: Label
     
     /// Boolean value, indicating if label is shown.
@@ -496,13 +501,13 @@ open class ResizingTokenField: UIView, UICollectionViewDataSource, UICollectionV
             cachedText = nil
             textFieldCell.textField.text = text
         }
-        
         textFieldCell.textField.placeholder = placeholder
         textFieldCell.textField.font = viewModel.font
         textFieldCell.textField.returnKeyType = preferredTextFieldReturnKeyType
         textFieldCell.textField.enablesReturnKeyAutomatically = preferredTextFieldEnablesReturnKeyAutomatically
         textFieldCell.textField.delegate = textFieldDelegate
         textFieldCell.textField.textColor = textFieldTextColor
+        textFieldCell.textField.keyboardType = viewModel.keyboardType
         textFieldCell.textField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         textFieldCell.textField.addTarget(self, action: #selector(textFieldEditingDidBegin(_:)), for: .editingDidBegin)
         textFieldCell.textField.addTarget(self, action: #selector(textFieldEditingDidEnd(_:)), for: .editingDidEnd)

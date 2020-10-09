@@ -42,6 +42,7 @@ class DefaultTokenCell: ResizingTokenFieldTokenCell {
         configureWithCurrentConfiguration()
         
         addSubview(titleLabel)
+        titleLabel.adjustsFontForContentSizeCategory = true
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textAlignment = .center
         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true

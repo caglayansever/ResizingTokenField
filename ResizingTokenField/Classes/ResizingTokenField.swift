@@ -28,6 +28,10 @@ open class ResizingTokenField: UIView, UICollectionViewDataSource, UICollectionV
         }
     }
     
+    /// iOS 12 has an issue after parent size changed(origin.y)
+    /// Set after parent resizing to parent origin.y
+    public var frameOriginY: CGFloat?
+    
     /// Spacing between items in a row.
     public var itemSpacing: CGFloat = Constants.Default.itemSpacing {
         didSet {
@@ -372,6 +376,9 @@ open class ResizingTokenField: UIView, UICollectionViewDataSource, UICollectionV
             }
             completion?(true)
         }
+        if let frameOriginY = frameOriginY {
+            collectionView.frame.origin.y = frameOriginY
+        }
     }
     
     private func removeItems(atIndexPaths indexPaths: [IndexPath], animated: Bool, completion: ((_ finished: Bool) -> Void)?) {
@@ -391,6 +398,9 @@ open class ResizingTokenField: UIView, UICollectionViewDataSource, UICollectionV
                 collectionView.deleteItems(at: indexPaths)
             }
             completion?(true)
+        }
+        if let frameOriginY = frameOriginY {
+            collectionView.frame.origin.y = frameOriginY
         }
     }
     

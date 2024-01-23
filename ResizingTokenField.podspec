@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = 'ResizingTokenField'
-  s.version               = '0.1.1'
+  s.version               = '0.1.2'
   s.summary               = 'A token field implementation written in Swift 5.'
   s.homepage              = 'https://github.com/tadejr/ResizingTokenField.git'
   s.license               = { :type => 'MIT', :file => 'LICENSE' }

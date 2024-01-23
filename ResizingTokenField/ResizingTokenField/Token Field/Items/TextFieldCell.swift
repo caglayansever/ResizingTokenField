@@ -42,7 +42,7 @@ class TextFieldCell: UICollectionViewCell {
     }
     
     private func setUp() {
-        addSubview(textField)
+        contentView.addSubview(textField)
         
         textField.autocorrectionType = .no
         textField.translatesAutoresizingMaskIntoConstraints = false

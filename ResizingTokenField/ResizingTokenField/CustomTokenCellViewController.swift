@@ -112,6 +112,13 @@ class CustomTokenCellViewController: UIViewController, UITableViewDataSource, UI
     }
     
     // MARK: - ResizingTokenFieldCustomCellDelegate
+
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        guard textField == tokenField.textField else {
+            return
+        }
+        tokenField.delegate?.resizingTokenFieldDidEndEditing(tokenField, reason: reason)
+    }
     
     func resizingTokenFieldCustomTokenCellClass(_ tokenField: ResizingTokenField) -> ResizingTokenFieldTokenCell.Type? {
         return nil

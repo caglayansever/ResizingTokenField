@@ -87,6 +87,12 @@ public protocol ResizingTokenFieldDelegate: AnyObject {
     /// - Returns: Configuration of the cell.
     func resizingTokenField(_ tokenField: ResizingTokenField, configurationForDefaultCellRepresenting token: ResizingTokenFieldToken) -> DefaultTokenCellConfiguration?
     
+    /// Notifies the delegate that editing has ended for the resizing token field.
+    /// - Parameters:
+    ///   - tokenField: The resizing token field where editing ended.
+    ///   - reason: The reason for ending editing, represented by a DidEndEditingReason enumeration value.
+    func resizingTokenFieldDidEndEditing(_ tokenField: ResizingTokenField, reason: UITextField.DidEndEditingReason)
+    
 }
 
 /// Default implementations for optional methods.
@@ -99,6 +105,7 @@ public extension ResizingTokenFieldDelegate {
     func resizingTokenField(_ tokenField: ResizingTokenField, didEditText newText: String?) {}
     func resizingTokenField(_ tokenField: ResizingTokenField, shouldRemoveToken token: ResizingTokenFieldToken) -> Bool { return true }
     func resizingTokenField(_ tokenField: ResizingTokenField, configurationForDefaultCellRepresenting token: ResizingTokenFieldToken) -> DefaultTokenCellConfiguration? { return nil }
+    func resizingTokenFieldDidEndEditing(_ tokenField: ResizingTokenField, reason: UITextField.DidEndEditingReason) { }
     
 }
 

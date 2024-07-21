@@ -175,7 +175,7 @@ open class ResizingTokenField: UIView, UICollectionViewDataSource, UICollectionV
     // MARK: - Initialization
     
     let viewModel: ResizingTokenFieldViewModel = ResizingTokenFieldViewModel()
-    private let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: ResizingTokenFieldFlowLayout())
+    let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: ResizingTokenFieldFlowLayout())
     
     /// Tracks when the initial collection view load is performed.
     /// This flag is used to prevent crashes from trying to insert/delete items before the initial load.
